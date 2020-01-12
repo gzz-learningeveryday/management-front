@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{getMenu}}</h1>
     <h1>{{menu}}</h1>
+    <el-button type="primary" @click="init">请求后台</el-button>
   </div>
 </template>
 
@@ -17,13 +17,7 @@ export default {
   },
   methods: {
     init: function () {
-      
-    }
-  },
-  computed: {
-    // 计算属性的 getter
-    getMenu: function () {
-     axios.get('/mock', {
+      axios.get('/mock', {
         params: {
           ID: 12345
         }
@@ -32,6 +26,9 @@ export default {
         this.menu = response.data;
       });
     }
+  },
+  computed: {
+    
   }
 }
 </script>
